@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body class="login-body">
+
+
+<div class="login-container">
+
+
+    <h1 id="formTitle">
+        Login
+    </h1>
+
+
+    <p class="subtitle">
+        Login to continue
+    </p>
+
+
+    <!-- SESSION TIMEOUT MESSAGE -->
+
+    <div
+        id="timeoutMessage"
+        class="message timeout"
+        style="display:none;"
+    >
+
+        Session timed out
+
+    </div>
+
+
+    <!-- LOGIN / SIGNUP MESSAGES -->
+
+    <div
+        id="message"
+        class="message"
+        style="display:none;"
+    >
+    </div>
+
+
+    <!-- LOGIN FORM -->
+
+    <form id="loginForm">
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+            type="email"
+            id="loginEmail"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+
+        <input
+            type="password"
+            id="loginPassword"
+            placeholder="Enter your password"
+            required
+        >
+
+
+        <button type="submit">
+
+            Login
+
+        </button>
+
+
+    </form>
+
+
+    <!-- SIGNUP FORM -->
+
+    <form
+        id="signupForm"
+        style="display:none;"
+    >
+
+
+        <label>
+            Email
+        </label>
+
+
+        <input
+            type="email"
+            id="signupEmail"
+            placeholder="Enter your email"
+            required
+        >
+
+
+        <label>
+            Password
+        </label>
+
+
+        <input
+            type="password"
+            id="signupPassword"
+            placeholder="Create password"
+            minlength="6"
+            required
+        >
+
+
+        <label>
+            Confirm Password
+        </label>
+
+
+        <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Confirm password"
+            minlength="6"
+            required
+        >
+
+
+        <button type="submit">
+
+            Sign Up
+
+        </button>
+
+
+    </form>
+
+
+    <!-- LOGIN / SIGNUP SWITCH -->
+
+    <div class="switch-area">
+
+
+        <p id="signupText">
+
+            Don't have an account?
+
+            <button
+                type="button"
+                id="showSignup"
+                class="link-button"
+            >
+
+                Sign Up
+
+            </button>
+
+        </p>
+
+
+        <p
+            id="loginText"
+            style="display:none;"
+        >
+
+            Already have an account?
+
+            <button
+                type="button"
+                id="showLogin"
+                class="link-button"
+            >
+
+                Login
+
+            </button>
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- SUPABASE JAVASCRIPT -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+
+
+<!-- RECEIVE SUPABASE VALUES FROM PYTHON -->
+
+<script>
+
+    window.SUPABASE_URL =
+        "{{ supabase_url }}";
+
+    window.SUPABASE_KEY =
+        "{{ supabase_key }}";
+
+</script>
+
+
+<!-- OUR AUTHENTICATION CODE -->
+
+<script
+    src="{{ url_for('static', filename='auth.js') }}"
+></script>
+
+
+</body>
+
+</html>
